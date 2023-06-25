@@ -2,6 +2,7 @@ package com.example.lnadmarkbook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -19,6 +20,10 @@ public class DetailsActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-
+        Intent intent = getIntent();
+        Landmark selectedLandmark = (Landmark) intent.getSerializableExtra("landmark");
+        binding.nameText.setText(selectedLandmark.name);
+        binding.countryText.setText(selectedLandmark.country);
+        binding.imageView2.setImageResource(selectedLandmark.image);
     }
 }

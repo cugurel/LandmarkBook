@@ -1,6 +1,9 @@
 package com.example.lnadmarkbook;
 
-public class Landmark {
+
+import java.io.Serializable;
+
+public class Landmark implements Serializable {
     String name;
     String country;
     int image;
