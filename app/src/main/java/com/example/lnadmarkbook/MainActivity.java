@@ -1,6 +1,7 @@
 package com.example.lnadmarkbook;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,7 +38,11 @@ public class MainActivity extends AppCompatActivity {
         landmarkArrayList.add(eiffel);
         landmarkArrayList.add(colosseum);
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LandmarkAdapter landmarkAdapter = new LandmarkAdapter(landmarkArrayList);
+        binding.recyclerView.setAdapter(landmarkAdapter);
+
+        /*ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,
                 landmarkArrayList.stream().map(landmark -> landmark.name).collect(Collectors.toList())
         );
         binding.listView.setAdapter(arrayAdapter);
@@ -50,5 +55,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        */
     }
 }
